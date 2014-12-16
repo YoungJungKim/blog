@@ -1,4 +1,17 @@
 Rails.application.routes.draw do
+	root 	'blog#post'
+
+	get		'blog/show/:id' => 'blog#show'
+	
+	get		'blog/write'
+	
+	post	'blog/write_complete'
+	
+	get		'blog/edit/:id'	=>	'blog#edit'
+	
+	post	'blog/edit_complete'
+	
+	get		'blog/delete_complete/:id'	=>	'blog#delete_complete'	
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

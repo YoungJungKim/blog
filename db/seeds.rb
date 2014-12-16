@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+0.upto(10) do |i|
+	p = Post.new
+	p.title = "Hello"+i.to_s
+	p.content = "Bye"
+	p.save
+end

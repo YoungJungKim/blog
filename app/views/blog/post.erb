@@ -1,0 +1,13 @@
+<% if flash[:alert] %>
+<div style="padding:20px; background:#ff0039; text-align:center;">
+  <p style="color:#fff; font-size:20px;"><%= flash[:alert] %></p>
+</div>
+<%end%>
+
+<div style="text-align:center;">
+  <h4 style="margin:50px;">
+	<% @posts.each do |p| %>
+		<a href="/blog/show/<%=p.id%>" style="margin:0 20px;"><%= p.title %></a>
+	<% end %>
+  </h4>
+</div>
