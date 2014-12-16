@@ -1,9 +1,11 @@
-<div style="text-align:center">
-  <h2>글 수정</h2>
-  <form action="/blog/edit_complete" method="post">
-    <input type="hidden" name="id" value="<%= @post.id %>">
-    <p>제목: <input type="text" name="edit_title" value="<%= @post.title %>"></p>
-    <p>내용: <textarea name="edit_content"><%= @post.content %></textarea></p>
-  	<input type="submit" value="수정하기">
-  </form>
+<div class="container">
+  <div style="text-align:center;">
+    <h2>글 수정</h2>
+    <form action="/blog/edit_complete" method="post">
+      <input type="hidden" name="id" value="<%= @post.id %>">
+      <p>제목: <input type="text" name="edit_title" value="<%= @post.title %>"></p>
+      <p>내용: <textarea name="edit_content"><%= @post.content %></textarea></p>
+    	<input type="submit" value="수정하기">
+    </form>
+  </div>
 </div>

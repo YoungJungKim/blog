@@ -1,13 +1,28 @@
-<% if flash[:alert] %>
-<div style="padding:20px; background:#ff0039; text-align:center;">
-  <p style="color:#fff; font-size:20px;"><%= flash[:alert] %></p>
-</div>
-<%end%>
+<div class="container">
+  <% if flash[:alert] %>
+  <div style="padding:20px; background:#ff0039; text-align:center;">
+    <p style="color:#fff; font-size:20px;"><%= flash[:alert] %></p>
+  </div>
+  <%end%>
 
-<div style="text-align:center;">
-  <h4 style="margin:50px;">
-	<% @posts.each do |p| %>
-		<a href="/blog/show/<%=p.id%>" style="margin:0 20px;"><%= p.title %></a>
-	<% end %>
-  </h4>
+  <div class="row row-offcanvas row-offcanvas-right">
+    <div class="col-xs-12 col-sm-offset-1 col-sm-10">
+      <p class="pull-right visible-xs">
+        <button type="button" class="btn btn-primary btn-xs" data-toggle="offcanvas">Toggle nav</button>
+      </p>
+      <div class="jumbotron">
+        <h1>Hello, My Blog!!</h1>
+        <p>Welcome.</p>
+      </div>
+      <div class="row">
+        <% @posts.each do |p| %>
+        <div class="col-xs-6 col-lg-4">
+          <h2><%= p.title %></h2>
+          <p><%= p.content %></p>
+          <p><a class="btn btn-default" href="/blog/show/<%=p.id%>" role="button">View details »</a></p>
+        </div><!--/.col-xs-6.col-lg-4-->
+        <%end%>
+      </div><!--/row-->
+    </div><!--/.col-xs-12.col-sm-9-->
+  </div>
 </div>
