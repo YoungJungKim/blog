@@ -5,6 +5,7 @@ class BlogController < ApplicationController
 	
 	def show
 		@post = Post.find(params[:id])
+    @comment = Comment.where(:post_id => params[:id])
 	end
 
 	def write
@@ -22,6 +23,16 @@ class BlogController < ApplicationController
 			redirect_to :back
 		end
 	end
+
+  def write_comment_complete
+    c = Comment.new
+    c.post_id = params[:post_id]
+    c.name = params[:writer]
+    c.comment = params[:comment]
+    c.save
+
+    redirect_to :back
+  end
 
 	def edit
     @post = Post.find(params[:id])

@@ -6,6 +6,8 @@ Rails.application.routes.draw do
 	get		'blog/write'
 	
 	post	'blog/write_complete'
+
+  post  'blog/write_comment_complete'
 	
 	get		'blog/edit/:id'	=>	'blog#edit'
 	

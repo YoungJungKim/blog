@@ -1,12 +1,29 @@
-<% if flash[:alert] %>
-<div style="padding:20px; background:#ff0039; text-align:center;">
-  <p style="color:#fff; font-size:20px;"><%= flash[:alert] %></p>
-</div>
-<%end%>
+<div class="container">
+  <% if flash[:alert] %>
+  <div style="padding:20px; background:#ff0039; text-align:center;">
+    <p style="color:#fff; font-size:20px;"><%= flash[:alert] %></p>
+  </div>
+  <%end%>
 
-<div style="text-align:center;">
-	<h3>제목 : <%=@post.title%></h3>
-	<p>내용 : <%=@post.content%></p>
-	<p><a href="/blog/edit/<%= @post.id %>">수정</a> | <a href="/blog/delete_complete/<%= @post.id %>">삭제</a></p>
-	<p><a href="/">Home</p>
+  <div style="text-align:center;">
+  	<h3>제목 : <%=@post.title%></h3>
+  	<p>내용 : <%=@post.content%></p>
+  	<p><a href="/blog/edit/<%= @post.id %>">수정</a> | <a href="/blog/delete_complete/<%= @post.id %>">삭제</a></p>
+  	
+    <div>
+      <h3>Comment</h3>
+      <% @post.comments.each do |comment| %>
+      <p style="font-size: 15px; text-align: center"><span style="color: ##0000ff; font-weight: bold;"><%= comment.name %></span>&nbsp;&nbsp;<%= comment.comment %></p>
+      <% end %>
+    </div>
+  </div>
+  <div style="height:30px;"></div>
+  <div style="background-color: #e9eaed;">
+    <h1>Write Comment</h1>
+    <form action="/blog/write_comment_complete" method="post">
+      <input type="hidden" name="post_id" value="<%= @post.id %>">
+      <input type="text" name="writer" placeholder="Name">: <input type="text" name="comment" placeholder="Write a comment">
+      <input type="submit" value="Comment">
+    </form>
+  </div>
 </div>
