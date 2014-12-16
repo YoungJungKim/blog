@@ -13,7 +13,7 @@
     <div>
       <h3>Comment</h3>
       <% @post.comments.each do |comment| %>
-      <p style="font-size: 15px; text-align: center"><span style="color: ##0000ff; font-weight: bold;"><%= comment.name %></span>&nbsp;&nbsp;<%= comment.comment %></p>
+      <p style="font-size: 15px; text-align: center"><span style="color: ##0000ff; font-weight: bold;"><%= comment.name %></span>&nbsp;&nbsp;|&nbsp;&nbsp;<%= comment.comment %></p>
       <% end %>
     </div>
   </div>
